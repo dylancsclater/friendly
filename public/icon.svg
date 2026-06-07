@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="School Store">
+  <rect width="512" height="512" rx="96" fill="#2e7d32"/>
+  <path d="M120 180 h272 l-24 200 a16 16 0 0 1 -16 14 H160 a16 16 0 0 1 -16 -14 Z" fill="#fff"/>
+  <path d="M188 180 v-24 a68 68 0 0 1 136 0 v24" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="150" font-weight="bold" fill="#2e7d32" text-anchor="middle">$</text>
+</svg>
