@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['money/*.svg', 'icon.svg'],
+      includeAssets: ['money/*.png', 'icon.svg'],
       manifest: {
         name: 'School Store',
         short_name: 'Store',

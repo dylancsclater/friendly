@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 90" role="img" aria-label="ten dollar bill">
-  <rect x="3" y="3" width="194" height="84" rx="10" fill="#fde2c8" stroke="#c8762a" stroke-width="4"/>
-  <circle cx="40" cy="45" r="24" fill="#fff" stroke="#c8762a" stroke-width="3"/>
-  <text x="40" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#c8762a" text-anchor="middle">10</text>
-  <text x="125" y="56" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#c8762a" text-anchor="middle">$10</text>
-</svg>

@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 90" role="img" aria-label="one dollar bill">
-  <rect x="3" y="3" width="194" height="84" rx="10" fill="#d7ead9" stroke="#3a7d44" stroke-width="4"/>
-  <circle cx="40" cy="45" r="24" fill="#fff" stroke="#3a7d44" stroke-width="3"/>
-  <text x="40" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#3a7d44" text-anchor="middle">1</text>
-  <text x="128" y="56" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#3a7d44" text-anchor="middle">$1</text>
-</svg>
