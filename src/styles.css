@@ -161,21 +161,24 @@ h1 { font-family: var(--font-display); }
 }
 
 /* ---- Shop grid ---- */
+/* Columns/rows are set inline by ShopScreen so every product fits the visible
+   box with no scrolling — tiles shrink as more products are added. */
 .product-grid {
   flex: 1;
+  min-height: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
   gap: 16px;
-  overflow-y: auto;
-  align-content: start;
-  padding: 4px 4px 12px;
+  padding: 4px;
 }
 .product-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-height: 0;
   padding: 14px;
+  overflow: hidden;
   background: #fff;
   border: 3px solid var(--line);
   border-radius: var(--radius);
@@ -184,10 +187,19 @@ h1 { font-family: var(--font-display); }
 }
 .product-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(40, 28, 12, 0.16); }
 .product-tile:active { transform: scale(0.95); border-color: var(--grass); box-shadow: 0 2px 6px rgba(47,111,38,0.3); }
-.product-tile__img-wrap { width: 100%; aspect-ratio: 1; }
-.product-tile__img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
-.product-tile__img--placeholder { display: grid; place-items: center; font-size: 52px; background: var(--grass-tint); }
-.product-tile__title { font-weight: 800; text-align: center; line-height: 1.15; }
+.product-tile__img-wrap { flex: 1; min-height: 0; width: 100%; display: flex; justify-content: center; }
+.product-tile__img { max-width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+.product-tile__img--placeholder { width: 100%; display: grid; place-items: center; font-size: 52px; background: var(--grass-tint); }
+.product-tile__title {
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.15;
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .product-tile__price {
   font-family: var(--font-display);
   color: #fff; background: var(--grass);
