@@ -267,6 +267,8 @@ h1 { font-family: var(--font-display); }
   border-radius: 50%;
   box-shadow: 0 3px 7px rgba(40, 28, 12, 0.30);
 }
+.money-row--normal .money-img--bill { height: 158px; }
+.money-row--normal .money-img--coin { width: 137px; height: 137px; }
 .money-row--large .money-img--bill { height: 92px; }
 .money-row--large .money-img--coin { width: 80px; height: 80px; }
 
