@@ -222,7 +222,9 @@ h1 { font-family: var(--font-display); }
 .screen-footer .big-button { flex: 1; }
 
 /* ---- Cart screen ---- */
-.cart-list { list-style: none; margin: 0; padding: 0; flex: 1; overflow-y: auto; }
+/* flex:1 + min-height:0 lets the list shrink and scroll inside the fixed-height
+   screen instead of being pushed/clipped when the total pictures grow. */
+.cart-list { list-style: none; margin: 0; padding: 0; flex: 1; min-height: 0; overflow-y: auto; }
 .cart-item {
   display: grid;
   grid-template-columns: 1fr auto auto var(--touch);
@@ -244,7 +246,10 @@ h1 { font-family: var(--font-display); }
 }
 .cart-item__remove:active { transform: scale(0.9); background: #fde9e6; }
 
-.total-block { text-align: center; padding: 10px; }
+/* Don't shrink, but cap how much height the total (incl. money pictures) can
+   claim so the cart list above always keeps a scrollable area. */
+.total-block { text-align: center; padding: 10px; flex-shrink: 0; }
+.cart-screen .money-row { max-height: 34vh; overflow-y: auto; }
 .total-amount {
   font-family: var(--font-display);
   font-size: 54px; font-weight: 700; color: var(--grass-deep);
@@ -267,8 +272,13 @@ h1 { font-family: var(--font-display); }
   border-radius: 50%;
   box-shadow: 0 3px 7px rgba(40, 28, 12, 0.30);
 }
-.money-row--normal .money-img--bill { height: 158px; }
-.money-row--normal .money-img--coin { width: 137px; height: 137px; }
+/* Responsive: scale with the viewport's short side (app is landscape), with a
+   floor so they stay legible and a ceiling so they never crowd out the list. */
+.money-row--normal .money-img--bill { height: clamp(70px, 18vmin, 160px); }
+.money-row--normal .money-img--coin {
+  width: clamp(60px, 16vmin, 140px);
+  height: clamp(60px, 16vmin, 140px);
+}
 .money-row--large .money-img--bill { height: 92px; }
 .money-row--large .money-img--coin { width: 80px; height: 80px; }
 
