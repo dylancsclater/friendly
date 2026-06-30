@@ -70,7 +70,10 @@ h1 { font-family: var(--font-display); }
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 1100px;
+  /* Fill (almost) the full viewport width so wide content like the cash pad
+     isn't cramped; the small cap keeps a sliver of wood frame on huge screens. */
+  width: 100%;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 20px;
   gap: 16px;
@@ -227,19 +230,19 @@ h1 { font-family: var(--font-display); }
 .cart-list { list-style: none; margin: 0; padding: 0; flex: 1; min-height: 0; overflow-y: auto; }
 .cart-item {
   display: grid;
-  grid-template-columns: 1fr auto auto var(--touch);
+  grid-template-columns: 1fr auto auto 48px;
   align-items: center;
   gap: 12px;
-  padding: 14px 10px;
+  padding: 8px 10px;
   border-bottom: 2px solid var(--line);
-  font-size: 22px;
+  font-size: 17px;
 }
 .cart-item__title { font-weight: 700; }
 .cart-item__qty { color: var(--muted); font-weight: 700; }
 .cart-item__price { font-family: var(--font-display); font-weight: 600; color: var(--grass-deep); }
 .cart-item__remove {
-  width: var(--touch); height: var(--touch);
-  font-size: 34px; font-weight: 700;
+  width: 48px; height: 48px;
+  font-size: 26px; font-weight: 700;
   border: 2px solid var(--danger); color: var(--danger);
   background: #fff; border-radius: 14px;
   transition: transform 0.08s ease;
@@ -264,23 +267,23 @@ h1 { font-family: var(--font-display); }
 }
 .money-img { display: block; }
 .money-img--bill {
-  height: 60px; border-radius: 6px;
+  height: 69px; border-radius: 6px;
   box-shadow: 0 3px 7px rgba(40, 28, 12, 0.28);
 }
 .money-img--coin {
-  width: 52px; height: 52px; object-fit: cover;
+  width: 60px; height: 60px; object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 3px 7px rgba(40, 28, 12, 0.30);
 }
 /* Responsive: scale with the viewport's short side (app is landscape), with a
    floor so they stay legible and a ceiling so they never crowd out the list. */
-.money-row--normal .money-img--bill { height: clamp(70px, 18vmin, 160px); }
+.money-row--normal .money-img--bill { height: clamp(64px, 16.6vmin, 147px); }
 .money-row--normal .money-img--coin {
-  width: clamp(60px, 16vmin, 140px);
-  height: clamp(60px, 16vmin, 140px);
+  width: clamp(55px, 14.7vmin, 129px);
+  height: clamp(55px, 14.7vmin, 129px);
 }
-.money-row--large .money-img--bill { height: 92px; }
-.money-row--large .money-img--coin { width: 80px; height: 80px; }
+.money-row--large .money-img--bill { height: 106px; }
+.money-row--large .money-img--coin { width: 92px; height: 92px; }
 
 /* ---- Pay screen ---- */
 .pay-status {
@@ -301,7 +304,7 @@ h1 { font-family: var(--font-display); }
 }
 .cash-button {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 14px; min-height: 120px;
+  padding: 14px; min-height: 173px;
   background: #fff; border: 3px solid var(--line); border-radius: 18px;
   font-size: 20px; font-weight: 700; color: var(--grass-deep);
   box-shadow: 0 4px 10px rgba(40, 28, 12, 0.10);
@@ -309,9 +312,9 @@ h1 { font-family: var(--font-display); }
 }
 .cash-button:hover { transform: translateY(-2px); }
 .cash-button:active { transform: scale(0.94); border-color: var(--grass); box-shadow: 0 2px 6px rgba(47,111,38,0.3); }
-.cash-button img { height: 58px; }
+.cash-button img { height: 100px; }
 .cash-button--bill img { border-radius: 5px; box-shadow: 0 2px 5px rgba(40,28,12,0.25); }
-.cash-button--coin img { width: 58px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 5px rgba(40,28,12,0.28); }
+.cash-button--coin img { width: 100px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 5px rgba(40,28,12,0.28); }
 
 /* ---- Change screen ---- */
 .change-screen { align-items: center; text-align: center; justify-content: center; }
