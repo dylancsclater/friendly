@@ -381,3 +381,51 @@ h1 { font-family: var(--font-display); }
   height: 120px; display: grid; place-items: center;
   background: var(--grass-tint); border-radius: 14px; color: var(--muted); font-weight: 700;
 }
+
+/* ---- Printable receipt ---- */
+/* Off-screen by default; only the @media print block below reveals it. */
+.receipt { display: none; }
+.receipt__store { font-family: var(--font-display); font-size: 22pt; margin: 0; text-align: center; }
+.receipt__date { margin: 2pt 0 12pt; text-align: center; font-size: 11pt; }
+.receipt__items { list-style: none; margin: 0; padding: 0; font-size: 13pt; }
+.receipt__item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 12pt;
+  padding: 8pt 0;
+  border-bottom: 1px dotted #999;
+}
+.receipt__item-img {
+  width: 96px; height: 96px;
+  object-fit: cover; border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.receipt__item-img--placeholder {
+  display: grid; place-items: center;
+  font-size: 44px; background: #f0f0f0;
+}
+.receipt__item-title { font-weight: 700; }
+.receipt__item-qty { white-space: nowrap; color: #444; }
+.receipt__item-price { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.receipt__totals { margin: 12pt 0 0; font-size: 13pt; }
+.receipt__totals div { display: flex; justify-content: space-between; padding: 2pt 0; }
+.receipt__totals dt, .receipt__totals dd { margin: 0; }
+.receipt__change { font-weight: 800; border-top: 2px solid #000; margin-top: 6pt; padding-top: 6pt; }
+.receipt__thanks { margin-top: 16pt; text-align: center; font-size: 13pt; }
+
+@media print {
+  @page { margin: 16mm; }
+  /* Drop the wood backdrop and let content flow to paper height. */
+  html, body { height: auto; background: #fff; }
+  #root, .screen { height: auto; overflow: visible; }
+  /* Hide the whole app, then bring back just the receipt. */
+  body * { visibility: hidden; }
+  .receipt, .receipt * { visibility: visible; }
+  .receipt {
+    display: block;
+    position: absolute; top: 0; left: 0; right: 0;
+    margin: 0 auto; max-width: 520px;
+    color: #000;
+  }
+}
