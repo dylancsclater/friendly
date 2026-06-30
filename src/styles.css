@@ -282,7 +282,7 @@ h1 { font-family: var(--font-display); }
   width: clamp(55px, 14.7vmin, 129px);
   height: clamp(55px, 14.7vmin, 129px);
 }
-.money-row--large .money-img--bill { height: 106px; }
+.money-row--large .money-img--bill { height: 122px; }
 .money-row--large .money-img--coin { width: 92px; height: 92px; }
 
 /* ---- Pay screen ---- */
@@ -319,6 +319,17 @@ h1 { font-family: var(--font-display); }
 /* ---- Change screen ---- */
 .change-screen { align-items: center; text-align: center; justify-content: center; }
 .change-screen h1 { font-size: 40px; color: var(--grass-deep); }
+/* Let the change pictures grow into the available vertical space and spread
+   their wrapped rows evenly — so a large purchase fills the page top-to-bottom
+   instead of clumping in the middle. A single row still sits nicely centered. */
+.change-screen .money-row {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  align-content: space-evenly;
+  gap: 16px 20px;
+  overflow-y: auto;
+}
 .change-amount {
   font-family: var(--font-display);
   font-size: 72px; font-weight: 700; color: var(--grass);
